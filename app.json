@@ -1,0 +1,46 @@
+{
+  "expo": {
+    "name": "FitLife Tracker",
+    "slug": "fitlife-tracker",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0A0E1A",
+    "splash": {
+      "backgroundColor": "#0A0E1A",
+      "resizeMode": "contain"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.fitlife.tracker",
+      "infoPlist": {
+        "UIBackgroundModes": ["fetch", "remote-notification"]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0A0E1A"
+      },
+      "package": "com.fitlife.tracker",
+      "permissions": [
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.VIBRATE",
+        "android.permission.USE_EXACT_ALARM",
+        "android.permission.SCHEDULE_EXACT_ALARM"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "color": "#00D4C8",
+          "sounds": [],
+          "androidMode": "default"
+        }
+      ],
+      "expo-sqlite"
+    ]
+  }
+}
