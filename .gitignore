@@ -1,2 +1,7 @@
 .env
 node_modules
+
+.expo/
+.expo-shared/
+dist/
+web-build/
