@@ -2,9 +2,9 @@
 
 export const COLORS = {
   // Core brand
-  primary: '#00D4C8',         // Teal cyan
-  primaryDark: '#00A89D',
-  primaryLight: '#4DEDE7',
+  primary: '#61a09d',         // Teal cyan
+  primaryDark: '#02867d',
+  primaryLight: '#61f1ec',
   primaryGlow: '#00D4C820',
 
   // Secondary accent

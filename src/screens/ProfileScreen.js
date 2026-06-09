@@ -39,14 +39,25 @@ const ProfileScreen = () => {
     setErrors(e); return Object.keys(e).length === 0;
   };
 
-  const handleSave = async () => {
+const handleSave = async () => {
     if (!validate()) return;
     setSaving(true);
     try {
-      await updateProfile({ name: name.trim(), age: parseInt(age), height: parseFloat(height), weight: parseFloat(weight), fitness_level: fitnessLevel });
+      await updateProfile({
+        name: name.trim(),
+        age: parseInt(age),
+        height: parseFloat(height),
+        weight: parseFloat(weight),
+        fitness_level: fitnessLevel,
+      });
       await refreshProfile();
       Alert.alert('✅ Saved', 'Profile updated successfully!');
-    } catch { Alert.alert('Error', 'Could not save. Try again.'); } finally { setSaving(false); }
+    } catch (err) {
+      console.error('Profile save error:', err);
+      Alert.alert('Error', `Could not save: ${err.message}`);
+    } finally {
+      setSaving(false);
+    }
   };
 
   // Level icons
@@ -74,10 +85,10 @@ const ProfileScreen = () => {
           {/* Quick stats row */}
           <View style={styles.quickStatsRow}>
             {[
-              { label: 'Height', val: height ? `${height}cm` : '—', icon: 'body', color: COLORS.primary },
-              { label: 'Weight', val: weight ? `${weight}kg` : '—', icon: 'fitness', color: COLORS.accent },
-              { label: 'BMI', val: currentBMI || '—', icon: 'speedometer', color: bmiCat?.color || COLORS.textMuted },
-              { label: 'Age', val: age || '—', icon: 'calendar', color: COLORS.progress },
+              { label: 'Height', val: height ? `${height}cm` : '—', icon: 'body', color: '#5f636e' },
+              { label: 'Weight', val: weight ? `${weight}kg` : '—', icon: 'fitness', color: '#1a7272' },
+              { label: 'BMI', val: currentBMI || '—', icon: 'speedometer', color: '#3c7e4a'},
+              { label: 'Age', val: age || '—', icon: 'calendar', color: '#7d5a9f' },
             ].map(s => (
               <View key={s.label} style={styles.quickStat}>
                 <View style={[styles.quickStatIcon, { backgroundColor: s.color + '25' }]}>

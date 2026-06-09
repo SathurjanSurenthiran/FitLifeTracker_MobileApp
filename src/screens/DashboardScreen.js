@@ -32,6 +32,7 @@ const DashboardScreen = () => {
     { icon: 'bar-chart', label: 'Analytics', screen: 'Progress',  color: COLORS.progress },
     { icon: 'flag', label: 'Goals', screen: 'Goals',    color: COLORS.primary },
     { icon: 'notifications', label: 'Reminders', screen: 'Reminders', color: '#7EB8FF' },
+  //{ icon: 'person-circle', label: 'Profile', screen: 'Profile', color: COLORS.progress },
   ];
 
   return (
@@ -50,9 +51,14 @@ const DashboardScreen = () => {
               <Text style={styles.nameText}>{profile?.name || 'User'}</Text>
             </View>
           </View>
-          <TouchableOpacity style={styles.notifBtn} onPress={() => navigation.navigate('Reminders')}>
-            <Ionicons name="notifications-outline" size={22} color={COLORS.textSecondary} />
-          </TouchableOpacity>
+          <View style={{ flexDirection: 'row', gap: 8 }}>
+            <TouchableOpacity style={styles.notifBtn} onPress={() => navigation.navigate('Profile')}>
+              <Ionicons name="person-outline" size={22} color={COLORS.textSecondary} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.notifBtn} onPress={() => navigation.navigate('Reminders')}>
+              <Ionicons name="notifications-outline" size={22} color={COLORS.textSecondary} />
+            </TouchableOpacity>
+          </View>
         </View>
 
         {/* HERO SCORE CARD (teal card like reference) */}
@@ -150,7 +156,7 @@ const DashboardScreen = () => {
           <View style={styles.quoteAccent} />
           <View style={{ flex: 1 }}>
             <Text style={styles.quoteText}>"{quote.text}"</Text>
-            <Text style={styles.quoteAuthor}>— {quote.author}</Text>
+            {/* <Text style={styles.quoteAuthor}>— {quote.author}</Text>  */}
           </View>
         </View>
 
@@ -161,8 +167,8 @@ const DashboardScreen = () => {
 
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: COLORS.background },
-  content: { paddingHorizontal: SIZES.md, paddingTop: SIZES.md, paddingBottom: 100, gap: SIZES.md },
-
+  content: { paddingHorizontal: SIZES.md, paddingTop: SIZES.md, paddingBottom: 32, gap: SIZES.md },
+  
   header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 },
   headerLeft: { flexDirection: 'row', alignItems: 'center', gap: SIZES.sm },
   avatarSmall: { width: 44, height: 44, borderRadius: 22, backgroundColor: COLORS.primary, justifyContent: 'center', alignItems: 'center' },

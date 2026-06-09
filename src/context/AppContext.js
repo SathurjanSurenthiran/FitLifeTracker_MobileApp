@@ -17,7 +17,7 @@ import {
   updateStreaks,
 } from '../services/database';
 
-// Initial State ─
+// Initial State
 
 const initialState = {
   isLoading: true,
@@ -121,7 +121,7 @@ export const AppProvider = ({ children }) => {
 
   const today = dayjs().format('YYYY-MM-DD');
 
-  // ── Bootstrap
+  // Bootstrap
 
   const initApp = useCallback(async () => {
     try {
@@ -177,7 +177,7 @@ export const AppProvider = ({ children }) => {
     initApp();
   }, [initApp]);
 
-  // ── Refresh helpers 
+  // Refresh helpers 
 
   const refreshWater = useCallback(async () => {
     const [total, entries] = await Promise.all([
@@ -259,7 +259,7 @@ export const AppProvider = ({ children }) => {
     dispatch({ type: 'SET_NOTIFICATION_SETTINGS', payload: settings });
   }, []);
 
-  // ── Computed values 
+  // Computed values 
 
   const waterProgress = state.goals.water_goal_ml > 0
     ? Math.min((state.todayWater / state.goals.water_goal_ml) * 100, 100)
