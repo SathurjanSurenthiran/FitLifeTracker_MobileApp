@@ -8,20 +8,16 @@
     "userInterfaceStyle": "dark",
     "backgroundColor": "#0A0E1A",
     "splash": {
+      "image": "./assets/splash.png",
       "backgroundColor": "#0A0E1A",
       "resizeMode": "contain"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.fitlife.tracker",
       "infoPlist": {
-        "UIBackgroundModes": [
-          "fetch",
-          "remote-notification"
-        ]
+        "UIBackgroundModes": ["fetch", "remote-notification"]
       }
     },
     "android": {
